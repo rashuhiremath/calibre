@@ -1,45 +1,70 @@
-import { Row ,Col} from "react-bootstrap";
+import { Row ,Col, Button} from "react-bootstrap";
 import { FaUserGraduate } from "react-icons/fa";
 import {MdForwardToInbox} from "react-icons/md"
 import {BsFillPersonFill} from "react-icons/bs"
 import {ImBlog} from "react-icons/im"
+import {BiLogIn} from "react-icons/bi"
+import { useTranslation } from 'react-i18next'
+import {showFormAction} from "../../Redux-store/actions/signup/index.js"
+import SignUp from "./SignUp";
+import { useState } from "react";
+
+//import {useSelector,useDispatch } from "react-redux";
+
+
+
+  
 const Contact = () => {
+    // const signUp = useSelector(state => state.signup.showForm)
+    // const dispatch = useDispatch()
+   
+    const { t} = useTranslation();
+    const [show,setShow]=useState(false)
+    const clickToShow =()=>{
+        setShow(true)
+    }
+
+
   return (
     <>
-      <h1>Chat with us</h1>
-      <p>
-        Here are our international student ambassadors, and your new buddies!
-        All buddies listed below are current students at one of our Master's
-        programmes and at their personal contact card you will find information
-        about them such as where they come from, spoken languages, their
-        interests and hobbies and which programme they are in. The Chalmers
-        buddies can answer questions regarding the programme they pursue, the
-        courses they have taken, student life and more, all based on their
-        personal experience. Additionally, staff from the university are also on
-        hand to answer your questions.{" "}
+      <h1>{t("chat")}</h1>
+      <p>{t("chat1")}
+       {" "}
       </p>
-      <h6>Create an account and get in touch with us now!</h6>
+      <h6>{t("chat2")}</h6>
       <div>
         <Row>
           <Col>
-            <FaUserGraduate size={70} />
-            <p>Students</p>
+            <FaUserGraduate size={50} />
+            <p>{t("chat3")}</p>
           </Col>
           <Col>
-          <BsFillPersonFill size={70}/>
+          <BsFillPersonFill size={50}/>
+          <p>{t("staff")}</p>
           </Col>
           <Col>
-          <ImBlog size={70}/>
+          <ImBlog size={50}/>
+          <p>{t("blog")}</p>
           </Col>
          <Col>
-         <MdForwardToInbox size={70}/>
+         <MdForwardToInbox size={50}onClick={clickToShow}/>
+         <p>{t("inbox")}</p>
+         </Col>
+         <Col>
+         <div >
+         <BiLogIn size={50} onClick={clickToShow}/> 
+         <p>{t("signup")}</p>
+         
+         </div>
          </Col>
         </Row>
       </div>
 
-      <h3>Students</h3>
+      <h3>{t("chat3")}</h3>
+      { show ? <SignUp /> : null }
     </>
   );
 };
 
-export default Contact;
+
+export default Contact

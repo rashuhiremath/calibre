@@ -2,7 +2,7 @@ import { Container,Row,Col,Card } from "react-bootstrap"
 
 const DownCards =()=>{
     return(<>
-    <Container className="pt-4">
+    <Container className="">
 <Row>
 <Col md={4}>
 <Card className="bg-dark text-dark">

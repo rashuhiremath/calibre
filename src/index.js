@@ -4,11 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./i18n.js"
+import {Provider} from "react-redux"
+import configStore, { persistToStore } from './Redux-store';
 
+import { PersistGate } from 'redux-persist/integration/react';
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={"Loading..."}>
-    <App />
+      <Provider store={configStore}>
+      <PersistGate persistor={persistToStore}>
+    <App/>
+    </PersistGate>
+    </Provider>
     </Suspense>
    
   </React.StrictMode>,

@@ -3,8 +3,12 @@ import BigImage from "../BigImage";
 import Contact from "./Contact";
 import "../../styles/ChatWithUs.css"
 import MyNavbar from "../MyNavbar.jsx";
+import { useTranslation } from 'react-i18next'
+
+ 
 
 const ChatWithUs = () => {
+  const { t} = useTranslation();
   return (
     <>
     <MyNavbar/>
@@ -14,37 +18,37 @@ const ChatWithUs = () => {
             <Col sm={4} >
               <ListGroup>
                 <ListGroup.Item action href="#link1" className="chat">
-                  Education
+                  {t("education")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link2" className="chat">
-                  Master's Studies
+                 {t("list1")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link3" className="chat">
-                  Application and admission
+                {t("list2")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link4" className="chat">
-                  Fees and Scholarships
+                {t("list3")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link5" className="chat">
-                  Bachelor's Studies
+                {t("list4")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link6" className="chat">
-                  Student Mobility
+                {t("list5")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link7" className="chat">
-                  Studying at Chalmers
+                {t("list6")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link8"className="chat">
-                  Before your arrival
+                {t("list7")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link9" className="chat">
-                  Meet us online and talk about studies
+                {t("list8")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link10" className="chat">
-                  Corona updates for prospective students
+                {t("list9")}
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link11" className="chat">
-                  Contact Chalmers regarding studies
+                {t("list10")}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
