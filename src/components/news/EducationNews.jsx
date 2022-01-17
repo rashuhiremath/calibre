@@ -5,13 +5,8 @@ const EducationNews=()=>{
     const[news,setNews]=useState([])
    const  fetchTheNews= async()=>{
        try {
-           let response = await fetch("https://news67.p.rapidapi.com/v2/topic-search?languages=%3CREQUIRED%3E&search=%3CREQUIRED%3E", {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "news67.p.rapidapi.com",
-                "x-rapidapi-key": "9284f03779msh0bce33a5a90af60p1e926fjsn8955d195eabe"
-            }
-        })
+           let response = await fetch("https://newsdata.io/api/1/news?apikey=pub_36729379e349e083b7d02f316e601840d93a&q=education%20and%20research&country=de&language=en&category=technology ")
+           
         let data = await response.json()
         console.log(data)
        } catch (error) {

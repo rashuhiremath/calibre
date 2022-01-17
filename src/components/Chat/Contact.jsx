@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 import {showFormAction} from "../../Redux-store/actions/signup/index.js"
 import SignUp from "./SignUp";
 import { useState } from "react";
+import Blogs from "../Blogs.jsx";
 
 //import {useSelector,useDispatch } from "react-redux";
 
@@ -20,9 +21,24 @@ const Contact = () => {
    
     const { t} = useTranslation();
     const [show,setShow]=useState(false)
-    const clickToShow =()=>{
-        setShow(true)
-    }
+    const [display,setDisplay]=useState(false)
+   
+   
+    // const clickToShow =()=>{
+    //     setShow(true)
+    // }
+
+   const toggle = () => {
+        setShow(true);
+        setDisplay(false)
+      };
+    
+     const toggle2 = () => {
+        setShow(false)
+        setDisplay(true)
+      };
+    
+    
 
 
   return (
@@ -43,16 +59,16 @@ const Contact = () => {
           <p>{t("staff")}</p>
           </Col>
           <Col>
-          <ImBlog size={50}/>
+          <ImBlog size={50} onClick={toggle2}/>
           <p>{t("blog")}</p>
           </Col>
          <Col>
-         <MdForwardToInbox size={50}onClick={clickToShow}/>
+         <MdForwardToInbox size={50}/>
          <p>{t("inbox")}</p>
          </Col>
          <Col>
          <div >
-         <BiLogIn size={50} onClick={clickToShow}/> 
+         <BiLogIn size={50} onClick={toggle}/> 
          <p>{t("signup")}</p>
          
          </div>
@@ -62,6 +78,7 @@ const Contact = () => {
 
       <h3>{t("chat3")}</h3>
       { show ? <SignUp /> : null }
+      {display? <Blogs/>:null}
     </>
   );
 };

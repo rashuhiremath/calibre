@@ -5,16 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./i18n.js"
 import {Provider} from "react-redux"
-import configStore, { persistToStore } from './Redux-store';
-
-import { PersistGate } from 'redux-persist/integration/react';
+import configStore from './Redux-store';
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={"Loading..."}>
       <Provider store={configStore}>
-      <PersistGate persistor={persistToStore}>
+     
     <App/>
-    </PersistGate>
+   
     </Provider>
     </Suspense>
    

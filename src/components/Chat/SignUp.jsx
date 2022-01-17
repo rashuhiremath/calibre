@@ -1,38 +1,43 @@
 import { Form,Button } from "react-bootstrap"
+import { useTranslation } from 'react-i18next'
+
 const SignUp =()=>{
-return(<>
+
+    const {t}= useTranslation()
+return(
+<>
 <Form>
 <Form.Group controlId="formBasicEmail">
-    <Form.Label>First name</Form.Label>
+    <Form.Label>{t("firstname")}</Form.Label>
     <Form.Control type="email" placeholder="" />
     <Form.Text className="text-muted">
      
     </Form.Text>
   </Form.Group>
   <Form.Group controlId="formBasicEmail">
-    <Form.Label>Last name</Form.Label>
+    <Form.Label>{t("lastname")}</Form.Label>
     <Form.Control type="email" placeholder="" />
     <Form.Text className="text-muted">
       
     </Form.Text>
   </Form.Group>
   <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email </Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Label>{t("email")}</Form.Label>
+    <Form.Control type="email" placeholder={t("email")} />
     <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
+    {t("emailshare")}
     </Form.Text>
   </Form.Group>
 
   <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
+    <Form.Label>{t("password")}</Form.Label>
+    <Form.Control type="password" placeholder={t("password")} />
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="I agree to" />
+    <Form.Check type="checkbox" label={t("checkbox")} />
   </Form.Group>
   <Button variant="primary" type="submit">
-    Start to chat
+  {t("starttochat")}
   </Button>
 </Form></>)
 }

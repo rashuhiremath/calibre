@@ -1,6 +1,6 @@
 export const SHOW_SIGNUP_FORM = 'SHOW_SIGNUP_FORM'
 export const HIDE_SIGNUP_FORM = 'HIDE_SIGNUP_FORM'
-
+export const FETCH_EVENTS = 'FETCH_EVENTS'
 // in this file we're going to export our actions
 // what
 
@@ -19,3 +19,23 @@ export const hideFormAction = (toHide) => ({
   payload: toHide,
 })
 // the function returns an object, so you can dispatch it INSTEAD of dispatching the object
+
+export const fetchTheEvents = () => {
+    return async (dispatch,getState) => {
+        console.log("this is my action")
+      try {
+        let resp = await fetch("http://localhost:3005/calender");
+        if (resp.ok) {
+          const { data } = await resp.json();
+          dispatch({
+            type: FETCH_EVENTS,
+            payload: data,
+          });
+        } else {
+          console.log("error");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  };
