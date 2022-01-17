@@ -15,7 +15,7 @@ const Home=()=>{
     {/* <DownCards/> */}
     <Blogs/>
     <Footer/>
-     {/* <Calender/>   */}
+     <Calender/>  
     </>)
 }
 export default Home
